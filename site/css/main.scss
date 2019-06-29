@@ -1,0 +1,158 @@
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+body {
+    overflow-x: hidden;
+}
+
+$roxo: rgb(117,
+73,
+173);
+.nav-link {
+    text-transform: uppercase;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.navbar .navbar-nav .nav-item .nav-link.active {
+    background: none;
+    padding: 5px 20px;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 50px;
+}
+
+#banner {
+    height: 800px;
+    background-image: linear-gradient(-200deg, rgb(70, 195, 218), rgb(141, 88, 211), rgb(117, 73, 173))
+}
+
+.navbar-brand {
+    text-transform: uppercase;
+    font-size: 24px;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.greetings {
+    position: absolute;
+    top: 300px;
+    h1 {
+        text-transform: uppercase;
+        font-family: 'Varela Round', sans-serif;
+        font-weight: bold;
+        color: #fff;
+        letter-spacing: .1rem;
+        line-height: 40px;
+    }
+    .desc {
+        color: rgb(255, 255, 255);
+        text-transform: uppercase;
+        letter-spacing: .2rem;
+        position: relative;
+        padding: 0;
+        margin: 0;
+        left: 30px;
+        top: -10px;
+    }
+    .btn-grd {
+        font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+        font-size: 17px;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        color: #ffffff;
+        position: relative;
+        width: 40px;
+        border: 2px solid #fff;
+        border-radius: 50px;
+        padding: 16px 50px;
+        text-decoration: none;
+        font-weight: bold;
+        top: 20px;
+        left: 20px;
+    }
+}
+
+
+/*********** sectio 2 *********/
+
+.section2 {
+    background: #fff;
+    padding: 100px;
+    .card-deck .card .card-body i {
+        position: relative;
+        left: 120px;
+        margin-bottom: 20px;
+        color: rgb(117, 73, 173);
+    }
+    .btn-outline-info {
+        border-radius: 50px;
+        padding: 5px 25px;
+    }
+}
+
+
+/******** section3 ********/
+
+.section3 {
+    padding: 100px 0px;
+    background-image: linear-gradient(-190deg, rgb(177, 73, 173), rgb(141, 88, 211), rgb(70, 195, 218));
+    .card .card-body .card-title {
+        font-size: 40px;
+        font-family: 'Varela Round', sans-serif;
+    }
+}
+
+.section4 {
+    padding: 100px;
+}
+
+.section5 {
+    padding: 30px 20px;
+    background: rgb(15, 15, 15);
+}
+
+.section5 {
+    .logo {
+        position: relative;
+        margin-top: 30px;
+        color: #fff;
+        font-family: 'Varela Round', sans-serif;
+        letter-spacing: .2rem;
+        text-transform: uppercase;
+    }
+}
+
+.creditos {
+    height: 45px;
+    padding: 7px 5px;
+    background: rgb(0, 0, 0);
+    p {
+        text-transform: uppercase;
+        color: rgb(197, 194, 194);
+        float: right;
+    }
+}
+
+.download .card-body .btn-download a {
+    margin-bottom: 20px;
+}
+
+.download .card-body .btn-download {
+    margin-left: 10px;
+    text-decoration: none;
+    position: relative;
+    background: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    &:hover {
+        border: 2px solid #fff;
+    }
+}
+
+.download .card-body {
+    padding: 100px 0px;
+}
+
+.download .card-body a {
+    margin-top: 20px;
+}

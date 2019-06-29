@@ -1,0 +1,53 @@
+#!/bin/bash
+
+ip=`ifconfig | grep "inet addr" | cut -d ":" -f 2 | grep Bcast | cut -d " " -f 1`
+resp=3
+
+function caBeca(){
+clear
+echo "=========================="
+echo "------- automacao --------"
+echo "---pesquisa de aporta----_"
+echo -e "==========================\n"
+}
+while [ resp != 0 ]
+do 
+	caBeca
+	echo "por qal opcao deseja buscar:"
+	echi -e "[1] porta\n[2] servico"
+	read op_menu 
+	
+	case $op_menu in
+	1) caBeca
+	   echo "insira a porta:"
+	   read porta
+	   pid=`netstat -tanupl | grep -w $porta. | grep "LISTEN" | cut -d "N" -f 2 | cut -d "/" -f 1 | uniq |sed 's/ //g'`
+	   echo "porta: $porta  pid: $pid"
+	   echo "desafechar a porta? [s/n]"
+	   read opt1
+	   if [ $opt1 = "s" ]
+	   then
+		kill -9 $pid
+		clear
+		echo "porta fechada"
+	   else
+		echo "program finalizado"
+	   fi
+	break;;
+	2) echo "digite o nome do servico:"
+ 	   read opt_serv
+	   port_serv=`namp $ip | grep -w .$opt_serv | cut -d " " -f 1 | cut -d "/" -f1`
+	   echo "porta: $port_serv  servico: $opt_serv"
+	   echo -e "\ndeseja encerrar o servico? [s/n]"
+	   read opt2
+	   if [ $opt2 = "s" ];
+	   then
+		fuser -k $port-serv/tvp
+		clear
+		echo "porta fechada"
+	   else 
+		echo "programa finalizado"
+	   fi
+	breack;
+	esac
+done

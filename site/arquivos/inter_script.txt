@@ -1,0 +1,67 @@
+#!/bin/bash
+
+echo "=========================="
+echo "------- AUTOMACAO --------"
+echo "---- pesquisa de porta ---"
+echo "=========================="
+IP=`ifconfig | grep "inet addr" | cut -d ":" -f 2 | grep Bcast | cut -d " " -f 1`
+echo "my IP: $IP"
+
+echo " "
+echo "por qual opcao deseja buscar: "
+echo "[1] porta"
+echo "[2] tipo de servico"
+read op_menu
+echo " "
+
+if [ $op_menu -eq 1 ];
+then
+	clear
+	echo "insira o numero da porta: "
+	read porta
+	echo " " 
+	pid=`netstat -anp | grep :$porta | grep xinetd | cut -d " " -f 51 | cut -d "/" -f 1`
+	echo "  porta: $porta    PID: $pid"
+	echo " "
+	other_results=`nmap -PS $IP | grep $porta`
+	echo "resultados da busca:"
+	echo $other_results
+	echo " "
+	echo "deseja fechar a porta [s/n]?"
+	read opt1
+
+	if [ $opt1 = "s" ];
+	then
+		#kill -9 $pid
+		fuser -k $porta/tcp
+		echo "porta fechada"
+	else
+		echo "programa finalizado"
+	fi
+
+else
+	clear
+	echo "digite o o nome do servico:"
+	read opt_servico
+	echo " " 
+	result=`nmap -PS $IP | cut $opt_servico`
+	echo $result
+	echo " "
+	echo "deseja encerrar o servico [s/n]?
+	read opt2
+
+	if [ opt2 = "s" ];
+	then
+		clear
+		echo " " 
+		echo "insira o numero da porta:"
+		read porta2
+		
+		echo " "
+		fuser -k $porta2/tcp
+		echo "servico encerrado!"
+
+	else
+		echo "programa encerrado"
+	fi
+fi
